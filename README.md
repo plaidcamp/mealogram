@@ -1,3 +1,3 @@
-# gourmet-log
+# mealogram
 
 - TBD
