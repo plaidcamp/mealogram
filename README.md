@@ -1,3 +1,3 @@
-# gourmet-log
+# mealogram (밀로그램)
 
 - TBD
