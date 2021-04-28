@@ -1,28 +1,18 @@
-package com.plaidcamp.mealogram.database.entity;
-
-import java.util.UUID;
+package com.plaidcamp.mealogram.domain.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.PrePersist;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.plaidcamp.mealogram.domain.BaseEntity;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.hibernate.annotations.GenericGenerator;
-
 import lombok.NonNull;
 
 @Entity
-public class User extends BaseTimeEntity {
-
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(columnDefinition = "BINARY(16)")
-    @Id
-    private UUID id;
+public class User extends BaseEntity {
 
     @Column
     @NonNull
