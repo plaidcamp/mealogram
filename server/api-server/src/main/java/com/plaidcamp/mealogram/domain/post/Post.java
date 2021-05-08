@@ -1,6 +1,6 @@
-package com.plaidcamp.mealogram.common.domain.post;
+package com.plaidcamp.mealogram.domain.post;
 
-import com.plaidcamp.mealogram.common.domain.BaseEntity;
+import com.plaidcamp.mealogram.domain.BaseEntity;
 
 public class Post extends BaseEntity {
 

@@ -1,4 +1,4 @@
-package com.plaidcamp.mealogram.common.domain.post;
+package com.plaidcamp.mealogram.domain.post;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

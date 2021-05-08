@@ -1,4 +1,4 @@
-package com.plaidcamp.mealogram.common.domain;
+package com.plaidcamp.mealogram.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -24,7 +24,7 @@ public abstract class BaseEntity {
     private UUID id;
 
     @CreatedDate
-    private LocalDateTime createdDate;
+    private LocalDateTime creatdate;
     @LastModifiedDate
-    private LocalDateTime modifiedDate;
+    private LocalDateTime uptdate;
 }
