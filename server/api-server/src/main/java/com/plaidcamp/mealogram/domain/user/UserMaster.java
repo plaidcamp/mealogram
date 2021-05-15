@@ -11,10 +11,11 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import lombok.NonNull;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-public class UserMaster extends BaseEntity {
+public class UserMaster extends BaseEntity implements Serializable {
 
     @Column(unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

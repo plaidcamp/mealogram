@@ -1,7 +1,7 @@
 package com.plaidcamp.mealogram.post.controller;
 
+import com.plaidcamp.mealogram.domain.post.Post;
 import com.plaidcamp.mealogram.post.service.MealogramService;
-import com.plaidcamp.mealogram.post.vo.PostVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +35,7 @@ public class MealogramController {
     }
 
     @PostMapping("/")
-    public int insertPost(@RequestBody PostVo postVo) {
+    public int insertPost(@RequestBody Post post) {
 
         int result = -1;
 
