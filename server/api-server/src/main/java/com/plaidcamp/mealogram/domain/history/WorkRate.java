@@ -10,17 +10,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-public class WorkRate extends BaseEntity implements Serializable {
-    @Column
-    @NotNull
-    private String name;
+public class WorkRate extends BaseHistoryEntity {
 
-    @Column
-    private Long changeseq;
-
-    @Column
-    private Long entnumber;
-
-    @Column
-    private LocalDateTime udate;
 }

@@ -13,15 +13,11 @@ import lombok.NonNull;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class UserMaster extends BaseEntity implements Serializable {
-
-    @Column(unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @NotNull
-    private Integer entnumber;
 
     @Column(unique = true)
     @NotNull
@@ -59,7 +55,8 @@ public class UserMaster extends BaseEntity implements Serializable {
     @Column
     private String googleKey;
 
-
+    @OneToMany(mappedBy = "user_account")
+    private Set<UserAccount> userAccounts = new HashSet<UserAccount>();
 
     @PrePersist
     void hashPassword() {
