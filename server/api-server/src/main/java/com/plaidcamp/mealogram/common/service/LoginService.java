@@ -1,7 +1,6 @@
 package com.plaidcamp.mealogram.common.service;
 
 import com.plaidcamp.mealogram.common.error.exceptions.NotFoundException;
-import com.plaidcamp.mealogram.common.repository.LoginRepository;
 import com.plaidcamp.mealogram.common.vo.LoginVo;
 
 import lombok.extern.slf4j.Slf4j;
