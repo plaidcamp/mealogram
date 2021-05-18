@@ -10,13 +10,10 @@ import java.io.Serializable;
 public class EtcCode extends BaseEntity implements Serializable {
 
     @Column
-    private String namespace;
+    private String mainCode;
 
     @Column
-    private String maincode;
-
-    @Column
-    private String subcode;
+    private String subCode;
 
     @Column
     private String value1;
