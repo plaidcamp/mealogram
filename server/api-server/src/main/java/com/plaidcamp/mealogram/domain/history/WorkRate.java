@@ -11,8 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 public class WorkRate extends BaseEntity implements Serializable {
-    @Column(unique = true)
-    @Id
+    @Column
     @NotNull
     private String name;
 
