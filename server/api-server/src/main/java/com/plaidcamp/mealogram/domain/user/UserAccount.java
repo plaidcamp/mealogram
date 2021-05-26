@@ -2,17 +2,11 @@ package com.plaidcamp.mealogram.domain.user;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.plaidcamp.mealogram.domain.BaseEntity;
 
 import com.sun.istack.NotNull;
-import org.hibernate.annotations.NotFound;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import lombok.NonNull;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Entity
 public class UserAccount extends BaseEntity implements Serializable {
@@ -22,11 +16,6 @@ public class UserAccount extends BaseEntity implements Serializable {
     @Id
     @NotNull
     private String userid;
-
-    @Column
-    //@ManyToOne
-    @NotNull
-    private UserMaster entnumber;
 
     @Column(unique = true)
     @Id
@@ -48,4 +37,9 @@ public class UserAccount extends BaseEntity implements Serializable {
     @Column
     @NotNull
     private String gender;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private UserMaster userMaster;
+
 }
