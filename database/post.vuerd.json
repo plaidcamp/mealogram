@@ -1,0 +1,876 @@
+{
+  "canvas": {
+    "version": "2.0.13",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -80,
+    "scrollLeft": -405,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": true,
+      "columnPrimaryKey": true,
+      "columnUnique": true,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    }
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "MEALOGRAM",
+        "comment": "POST 테이블",
+        "columns": [
+          {
+            "name": "ID",
+            "comment": "포스트ID(PK)",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 77,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "f93dac2b-715b-4321-b001-5ce6e2b88ffc"
+          },
+          {
+            "name": "USER_NAME",
+            "comment": "작성자",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 76,
+              "widthComment": 60,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "5da1eb3e-76d4-4169-b86c-cf52958a2899"
+          },
+          {
+            "name": "WRITTEN_TIME",
+            "comment": "작성시간",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 91,
+              "widthComment": 60,
+              "widthDataType": 63,
+              "widthDefault": 60
+            },
+            "id": "fd804731-0b0d-40f9-bbfb-79114be76960"
+          },
+          {
+            "name": "MEAL_TIME",
+            "comment": "먹은시간",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 63,
+              "widthDefault": 60
+            },
+            "id": "64d9f7d2-23cf-43ad-84bf-24df62835e35"
+          },
+          {
+            "name": "FULLNESS",
+            "comment": "포만감",
+            "dataType": "DECIMAL",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 61,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "eefbb690-f207-41bb-b857-7134f0954769"
+          },
+          {
+            "name": "SATISFICATION",
+            "comment": "만족도",
+            "dataType": "DECIMAL(1,1)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 92,
+              "widthComment": 60,
+              "widthDataType": 82,
+              "widthDefault": 60
+            },
+            "id": "30ce11fa-858b-4b73-9f9f-0ec5848eeef3"
+          },
+          {
+            "name": "CONTENTS",
+            "comment": "본문",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 68,
+              "widthComment": 60,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "f2757033-ecb6-4b39-b077-6cfb7440f537"
+          },
+          {
+            "name": "CREATED_TIME",
+            "comment": "생성일자",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 91,
+              "widthComment": 60,
+              "widthDataType": 63,
+              "widthDefault": 60
+            },
+            "id": "0e416c77-475d-4025-a140-3cacca3bec06"
+          },
+          {
+            "name": "UPDATED_TIME",
+            "comment": "변동일자",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 94,
+              "widthComment": 60,
+              "widthDataType": 63,
+              "widthDefault": 60
+            },
+            "id": "b3f722e7-5c29-468a-b2e3-85e4d41a0bf9"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 121,
+          "top": 82,
+          "zIndex": 23,
+          "widthName": 83,
+          "widthComment": 77
+        },
+        "id": "9b7fa97d-16e7-4643-971c-08e3c0c7140f"
+      },
+      {
+        "name": "FOOD_CODE",
+        "comment": "음식코드 테이블",
+        "columns": [
+          {
+            "name": "ID",
+            "comment": "음식ID(PK)",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 64,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "52d080bc-3678-4c46-a496-8b09da1f9522"
+          },
+          {
+            "name": "CATEGORY_ID",
+            "comment": "음식 카테고리 ID(FK)",
+            "dataType": "VARCGAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 85,
+              "widthComment": 120,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "ee9d90d2-6325-4a8b-a5bb-8315024e07fc"
+          },
+          {
+            "name": "FOOD_NAME",
+            "comment": "음식이름",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 81,
+              "widthComment": 60,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "c2548f2c-d6b5-4423-9351-2edc91f4e914"
+          },
+          {
+            "name": "CARBO",
+            "comment": "탄수화물",
+            "dataType": "DECIMAL(5,2)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 82,
+              "widthDefault": 60
+            },
+            "id": "53d15838-a6e2-46ea-a257-9132642c5171"
+          },
+          {
+            "name": "PROTEIN",
+            "comment": "단백질",
+            "dataType": "DECIMAL(5,2)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 82,
+              "widthDefault": 60
+            },
+            "id": "b8d486c7-df3e-4005-a6aa-c3b6ffd934db"
+          },
+          {
+            "name": "FAT",
+            "comment": "지방",
+            "dataType": "DECIMAL(5,2)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 82,
+              "widthDefault": 60
+            },
+            "id": "502694c2-7f62-4697-b3ad-d256a295441d"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 792,
+          "top": 456,
+          "zIndex": 129,
+          "widthName": 78,
+          "widthComment": 98
+        },
+        "id": "f7e03244-935a-44c6-b75f-131014510f64"
+      },
+      {
+        "name": "FOOD_CATEGORY",
+        "comment": "음식 카테고리 테이블",
+        "columns": [
+          {
+            "name": "ID",
+            "comment": "음식 카테고리 ID",
+            "dataType": "VARCGAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 102,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "42632de1-c7bf-48be-afb5-6abf95228cd2"
+          },
+          {
+            "name": "CATEGORY_NAME",
+            "comment": "음식 카테고리 이름",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 110,
+              "widthComment": 115,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "096c3f2c-ba31-4153-ab5b-c87e0481f6ba"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 80,
+          "top": 607,
+          "zIndex": 74,
+          "widthName": 108,
+          "widthComment": 120
+        },
+        "id": "fd80978c-2f8e-4a78-b5fe-61bd7ee449fe"
+      },
+      {
+        "name": "POST_PHOTOS",
+        "comment": "POST_사진",
+        "columns": [
+          {
+            "name": "PHOTO_ID",
+            "comment": "사진 고유 ID(PK)",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 64,
+              "widthComment": 99,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "f13a6dd7-6d81-4fce-a241-10fc3f01333c"
+          },
+          {
+            "name": "ID",
+            "comment": "포스트ID(FK)",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 76,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "884002a3-0918-4f16-868d-1b5d6bc19597"
+          },
+          {
+            "name": " WRITER",
+            "comment": "작성자",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "d4d18992-5074-4a49-9fc9-85132a2554fa"
+          },
+          {
+            "name": "PATH",
+            "comment": "사진 경로",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "d0d536cd-c248-495d-bdea-67f50cf3c126"
+          },
+          {
+            "name": "SIZE",
+            "comment": "용량",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "22824069-8a0a-4387-ba65-8a251706cf16"
+          },
+          {
+            "name": "CREATED_TIME",
+            "comment": "생성일자",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 91,
+              "widthComment": 60,
+              "widthDataType": 63,
+              "widthDefault": 60
+            },
+            "id": "3a028ee6-ae3b-4ce1-b2b4-64d5be13386d"
+          },
+          {
+            "name": "UPDATED_TIME ",
+            "comment": "변동일자",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 94,
+              "widthComment": 60,
+              "widthDataType": 63,
+              "widthDefault": 60
+            },
+            "id": "ed99160a-de39-4a89-ba06-802fc9bbb1f3"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 755,
+          "top": 105,
+          "zIndex": 114,
+          "widthName": 90,
+          "widthComment": 65
+        },
+        "id": "32282745-7f1c-4635-a5e1-2bc145881722"
+      },
+      {
+        "name": "POST_FOOD",
+        "comment": "POST_먹은음식",
+        "columns": [
+          {
+            "name": "ID",
+            "comment": "먹은음식ID(PK)",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 90,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "e37fb8bd-d915-4e9c-863c-e2b107b48d2a"
+          },
+          {
+            "name": "FOOD_ID",
+            "comment": "음식ID(FK)",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 63,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "561c4ebc-9f29-48f9-b34b-7660b98ffbf8"
+          },
+          {
+            "name": "POST_ID",
+            "comment": "포스트ID(FK)",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 76,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "313708f2-7062-4d5f-b464-1fce84b61c41"
+          },
+          {
+            "name": "WRITER",
+            "comment": "작성자",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 61,
+              "widthDefault": 60
+            },
+            "id": "6fe6e5bc-594a-4dc1-9a6a-17fe2a36520a"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 154,
+          "top": 423,
+          "zIndex": 128,
+          "widthName": 75,
+          "widthComment": 91
+        },
+        "id": "327f7132-3bba-4aab-84e1-336853d2066d"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "",
+        "columns": [],
+        "unique": false,
+        "id": "71b7e829-1f80-46ba-afed-0c5549fca66e",
+        "tableId": "9b7fa97d-16e7-4643-971c-08e3c0c7140f"
+      }
+    ]
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "9b7fa97d-16e7-4643-971c-08e3c0c7140f",
+          "columnIds": [
+            "f93dac2b-715b-4321-b001-5ce6e2b88ffc"
+          ],
+          "x": 588,
+          "y": 208.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "32282745-7f1c-4635-a5e1-2bc145881722",
+          "columnIds": [
+            "884002a3-0918-4f16-868d-1b5d6bc19597"
+          ],
+          "x": 755,
+          "y": 211.25,
+          "direction": "left"
+        },
+        "id": "58f42413-3f29-4d01-b38b-d8c0a4820e7c"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "fd80978c-2f8e-4a78-b5fe-61bd7ee449fe",
+          "columnIds": [
+            "42632de1-c7bf-48be-afb5-6abf95228cd2"
+          ],
+          "x": 580,
+          "y": 662,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "f7e03244-935a-44c6-b75f-131014510f64",
+          "columnIds": [
+            "ee9d90d2-6325-4a8b-a5bb-8315024e07fc"
+          ],
+          "x": 792,
+          "y": 600,
+          "direction": "left"
+        },
+        "id": "e61f66df-9349-4ee0-8481-5c74dbcde762"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "9b7fa97d-16e7-4643-971c-08e3c0c7140f",
+          "columnIds": [
+            "f93dac2b-715b-4321-b001-5ce6e2b88ffc"
+          ],
+          "x": 354.5,
+          "y": 335.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "327f7132-3bba-4aab-84e1-336853d2066d",
+          "columnIds": [
+            "313708f2-7062-4d5f-b464-1fce84b61c41"
+          ],
+          "x": 366.5,
+          "y": 423,
+          "direction": "top"
+        },
+        "id": "c065120c-f7c3-4e4f-af84-db7cc03fcbcf"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f7e03244-935a-44c6-b75f-131014510f64",
+          "columnIds": [
+            "52d080bc-3678-4c46-a496-8b09da1f9522"
+          ],
+          "x": 792,
+          "y": 504,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "327f7132-3bba-4aab-84e1-336853d2066d",
+          "columnIds": [
+            "561c4ebc-9f29-48f9-b34b-7660b98ffbf8"
+          ],
+          "x": 579,
+          "y": 498.5,
+          "direction": "right"
+        },
+        "id": "886e1958-51ad-4f03-ba4d-daac428c31cb"
+      }
+    ]
+  }
+}
