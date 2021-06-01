@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'components/SignInBody.dart';
+import 'package:gourmetlog/common/components/color.dart';
 
 class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body:Column(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/test2.jpg"), fit: BoxFit.cover),
-                ),
-              ),
-            ),
-          ],
-        )
+    return MaterialApp(
+      title: "SignIn page",
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kBackgroudColor,
+        textTheme: TextTheme(
+          display1: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          button: TextStyle(color: kPrimaryColor),
+          headline: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25)
+        ),
+      ),
+      home: SignInBody(),
     );
   }
 }
+
