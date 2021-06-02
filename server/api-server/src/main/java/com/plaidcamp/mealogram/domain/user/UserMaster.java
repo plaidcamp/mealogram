@@ -6,18 +6,31 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.plaidcamp.mealogram.domain.BaseEntity;
 
 import com.sun.istack.NotNull;
-import org.hibernate.annotations.NotFound;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import lombok.NonNull;
 
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-public class UserMaster extends BaseEntity implements Serializable {
+public class UserMaster extends BaseEntity implements UserDetails {
 
     @Column(unique = true)
     @NotNull
@@ -55,6 +68,10 @@ public class UserMaster extends BaseEntity implements Serializable {
     @Column
     private String googleKey;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Builder.Default
+    private List<String> roles = new ArrayList<>();
+
     @OneToMany(mappedBy = "user_account")
     private Set<UserAccount> userAccounts = new HashSet<UserAccount>();
 
@@ -68,6 +85,43 @@ public class UserMaster extends BaseEntity implements Serializable {
 
     public boolean comparePassword(String password) {
         return new BCryptPasswordEncoder().matches(password, this.password);
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 }
