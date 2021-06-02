@@ -72,8 +72,8 @@ public class UserMaster extends BaseEntity implements UserDetails {
     @Builder.Default
     private List<String> roles = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user_account")
-    private Set<UserAccount> userAccounts = new HashSet<UserAccount>();
+//    @OneToMany(mappedBy = "user_account")
+//    private final Set<UserAccount> userAccounts = new HashSet<UserAccount>();
 
     @PrePersist
     void hashPassword() {

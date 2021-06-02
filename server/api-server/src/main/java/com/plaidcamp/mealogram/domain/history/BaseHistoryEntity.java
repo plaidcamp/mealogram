@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class BaseHistoryEntity extends BaseEntity implements Serializable {
     @Column
-    @ManyToOne
     private UserAccount userAccount;
 
     @Column
