@@ -14,8 +14,8 @@ import com.plaidcamp.mealogram.common.security.JwtTokenProvider;
 import com.plaidcamp.mealogram.domain.user.UserMaster;
 import com.plaidcamp.mealogram.domain.user.UserMasterRepository;
 
-@RequiredArgsConstructor
 @RestController
+@RequiredArgsConstructor
 public class UserController {
 
     private final PasswordEncoder passwordEncoder;

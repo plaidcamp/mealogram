@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:gourmetlog/common/auth/AuthManager.dart';
 import 'package:gourmetlog/common/components/color.dart';
 import 'package:gourmetlog/data/request/signin/SignInRequest.dart';
 import 'package:gourmetlog/data/response/signin/SignInResponse.dart';
+import 'package:gourmetlog/screens/main/MainScreen.dart';
 import 'dart:async';
 import 'package:gourmetlog/screens/signup/SignUpScreen.dart';
 
@@ -89,15 +92,28 @@ class SignInBody extends StatelessWidget {
                       builder:(context) {
                         return Scaffold(
                           body: FutureBuilder(
-                            future: signInRequest.getSignInInfo(),
-                            builder: (BuildContext context, AsyncSnapshot<List<SignInResponse>> snapshot) {
+                            future: signInRequest.getSignInInfo("", ""),
+                            builder: (BuildContext context, AsyncSnapshot<SignInResponse> snapshot) {
                               if(snapshot.hasData) {
-                                List<SignInResponse> responses = snapshot.data;
-                                return ListView(
-                                  children: responses.map((SignInResponse response) =>
-                                      ListTile( title: Text(response.userId.toString()) )
-                                  ).toList(),
-                                );
+                                SignInResponse response = snapshot.data;
+                                if(response.matchCode==0) {
+                                  final authManager = AuthManager();
+                                  authManager.saveToken("token", response.token);
+                                  return MainScreen();
+                                }
+                                else {
+                                  //팝업창 띄우기
+                                  return AlertDialog(
+                                    title: const Text('비밀번호가 틀리거나 존재하지 않는 이메일 입니다.'),
+                                    content: SingleChildScrollView(
+                                      child: ListBody(
+                                        children: const <Widget>[
+                                          Text('다시 입력해주시기 바랍니다.'),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                }
                               }
                               return Center(child: CircularProgressIndicator());
                             },

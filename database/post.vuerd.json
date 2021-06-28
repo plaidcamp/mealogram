@@ -3,9 +3,15 @@
     "version": "2.1.0",
     "width": 2000,
     "height": 2000,
+<<<<<<< HEAD
     "scrollTop": -215,
     "scrollLeft": -75,
     "zoomLevel": 0.9,
+=======
+    "scrollTop": -50,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+>>>>>>> e50b83f4a0805a1eb954a7e4e321addf64e29c60
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -231,8 +237,13 @@
         ],
         "ui": {
           "active": false,
+<<<<<<< HEAD
           "left": 87,
           "top": 86,
+=======
+          "left": 121,
+          "top": 82,
+>>>>>>> e50b83f4a0805a1eb954a7e4e321addf64e29c60
           "zIndex": 1,
           "widthName": 83,
           "widthComment": 77
@@ -384,9 +395,15 @@
         ],
         "ui": {
           "active": false,
+<<<<<<< HEAD
           "left": 733,
           "top": 534,
           "zIndex": 2,
+=======
+          "left": 792,
+          "top": 456,
+          "zIndex": 5,
+>>>>>>> e50b83f4a0805a1eb954a7e4e321addf64e29c60
           "widthName": 78,
           "widthComment": 98
         },
@@ -445,9 +462,15 @@
         ],
         "ui": {
           "active": false,
+<<<<<<< HEAD
           "left": 83,
           "top": 679,
           "zIndex": 3,
+=======
+          "left": 80,
+          "top": 607,
+          "zIndex": 2,
+>>>>>>> e50b83f4a0805a1eb954a7e4e321addf64e29c60
           "widthName": 108,
           "widthComment": 120
         },
@@ -621,9 +644,15 @@
         ],
         "ui": {
           "active": false,
+<<<<<<< HEAD
           "left": 740,
           "top": 96,
           "zIndex": 5,
+=======
+          "left": 755,
+          "top": 105,
+          "zIndex": 3,
+>>>>>>> e50b83f4a0805a1eb954a7e4e321addf64e29c60
           "widthName": 90,
           "widthComment": 65
         },
@@ -705,8 +734,13 @@
         ],
         "ui": {
           "active": false,
+<<<<<<< HEAD
           "left": 143,
           "top": 469,
+=======
+          "left": 154,
+          "top": 423,
+>>>>>>> e50b83f4a0805a1eb954a7e4e321addf64e29c60
           "zIndex": 4,
           "widthName": 75,
           "widthComment": 91
