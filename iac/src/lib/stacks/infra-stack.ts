@@ -9,6 +9,16 @@ export class InfraStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: InfraProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    /**
+     * 📝 vpc Stack
+     * @description @aws-cdk/aws-vpc를 사용하여 spring boot 인스턴스를 기동한다.
+     **/
+
+    /**
+     * 📝 Database Stack
+     * @description @aws-cdk/aws-rds를 사용하여 rdb를 생성한다.
+     **/
+
+
   }
 }
