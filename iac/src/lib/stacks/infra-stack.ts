@@ -10,8 +10,8 @@ export class InfraStack extends cdk.Stack {
     super(scope, id, props);
 
     /**
-     * 📝 vpc Stack
-     * @description @aws-cdk/aws-vpc를 사용하여 spring boot 인스턴스를 기동한다.
+     * 📝 Ec2 Stack
+     * @description @aws-cdk/aws-ec2 를 사용하여 spring boot 인스턴스를 기동한다.
      **/
 
     /**
