@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9f60134e-bcfb-4452-9443-0fada2e8ea70" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../database/user_ver_aibees.vuerd.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../database/user_ver_aibees.vuerd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/plaidcamp/mealogram/apiServer/mealogram/vo/MealogramPlate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/plaidcamp/mealogram/apiServer/mealogram/vo/MealogramPlate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/plaidcamp/mealogram/apiServer/user/vo/UserMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/plaidcamp/mealogram/apiServer/user/vo/UserMaster.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\user\.m2\wrapper\dists\apache-maven-3.8.1-bin\2l5mhf2pq2clrde7f7qp1rdt5m\apache-maven-3.8.1" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1rAWEGgo82gnmdXVjQgxeG1Lxaw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../xlsxConverter" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.ApiServerApplication">
+    <configuration name="ApiServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.plaidcamp.mealogram.apiServer.ApiServerApplication" />
+      <module name="apiServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.plaidcamp.mealogram.apiServer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="apiServer [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ApiServerApplication" />
+      <item itemvalue="Maven.apiServer [clean,package]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ApiServerApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f60134e-bcfb-4452-9443-0fada2e8ea70" name="Default Changelist" comment="" />
+      <created>1618419261761</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618419261761</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="367" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618422734052">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="367" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618422734052" />
+    <state x="765" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1618669853013">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="765" y="255" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618669853013" />
+    <state x="649" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618668528780">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="649" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618668528780" />
+    <state x="693" y="293" key="FileChooserDialogImpl" timestamp="1619021943554">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="693" y="293" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1619021943554" />
+    <state width="1876" height="265" key="GridCell.Tab.0.bottom" timestamp="1618531275565">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="265" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618531275565" />
+    <state width="1876" height="265" key="GridCell.Tab.0.center" timestamp="1618531275565">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="265" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618531275565" />
+    <state width="1876" height="265" key="GridCell.Tab.0.left" timestamp="1618531275565">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="265" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618531275565" />
+    <state width="1876" height="265" key="GridCell.Tab.0.right" timestamp="1618531275565">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="265" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618531275565" />
+    <state x="414" y="183" key="SettingsEditor" timestamp="1618419757734">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="414" y="183" key="SettingsEditor/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618419757734" />
+    <state x="569" y="252" width="672" height="677" key="run.anything.popup" timestamp="1618419488314">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="569" y="252" width="672" height="677" key="run.anything.popup/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1618419488314" />
+  </component>
+</project>

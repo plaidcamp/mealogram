@@ -1,10 +1,10 @@
 {
   "canvas": {
-    "version": "2.0.13",
+    "version": "2.1.0",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -2,
-    "scrollLeft": -266,
+    "scrollTop": -116,
+    "scrollLeft": -236,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -577,6 +577,7 @@
           "y": 500.75,
           "direction": "left"
         },
+        "constraintName": "",
         "id": "2ab2e251-c46e-4ab5-2e14-f79c4ecd6ecc"
       },
       {
@@ -603,6 +604,7 @@
           "y": 485,
           "direction": "top"
         },
+        "constraintName": "",
         "id": "2161618a-7f06-5d6b-056f-acd9929640aa"
       }
     ]

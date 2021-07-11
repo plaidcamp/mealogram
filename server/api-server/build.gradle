@@ -12,20 +12,32 @@ configurations {
 }
 
 dependencies {
+	// spring boot starter
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	implementation 'org.apache.logging.log4j:log4j-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// jwt token dependency
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+	// spring security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	// swagger dependency
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
-	runtimeOnly 'mysql:mysql-connector-java'
+
+	// database & persistence dependency
+	runtimeOnly 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// log4j
+	implementation 'org.apache.logging.log4j:log4j-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-log4j2'
 }
 

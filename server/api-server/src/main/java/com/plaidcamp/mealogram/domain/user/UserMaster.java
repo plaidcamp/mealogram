@@ -60,7 +60,7 @@ public class UserMaster extends BaseEntity implements UserDetails {
     private String phone;
 
     @Column
-    private String userclass;
+    private String userClass;
 
     @Column
     private String facebookKey;

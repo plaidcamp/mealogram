@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.ws:spring-ws-core:3.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/ws/spring-ws-core/3.1.0-SNAPSHOT/spring-ws-core-3.1.0-20210414.030723-32.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/ws/spring-ws-core/3.1.0-SNAPSHOT/spring-ws-core-3.1.0-20210414.030723-32-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/ws/spring-ws-core/3.1.0-SNAPSHOT/spring-ws-core-3.1.0-20210414.030723-32-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
