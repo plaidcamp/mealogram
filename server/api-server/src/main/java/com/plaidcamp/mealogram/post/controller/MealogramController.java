@@ -13,7 +13,7 @@ public class MealogramController {
     @Autowired
     MealogramService mealogramService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String CheckStatus() {
         return "CHECK";
     }
@@ -34,7 +34,7 @@ public class MealogramController {
         return returns;
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public int insertPost(@RequestBody Post post) {
 
         int result = -1;
