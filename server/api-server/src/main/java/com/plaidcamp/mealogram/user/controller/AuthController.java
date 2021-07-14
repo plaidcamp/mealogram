@@ -1,6 +1,6 @@
-package com.plaidcamp.mealogram.auth.controller;
+package com.plaidcamp.mealogram.user.controller;
 
-import com.plaidcamp.mealogram.auth.service.AuthService;
+import com.plaidcamp.mealogram.user.service.AuthService;
 import com.plaidcamp.mealogram.common.vo.ApiResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

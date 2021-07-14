@@ -47,6 +47,30 @@ description = 'api-server for mealoram'
 java.sourceCompatibility = JavaVersion.VERSION_11
 java.targetCompatibility = JavaVersion.VERSION_11
 
+ext.profile = (!project.hasProperty('profile')) ? 'local' : profile
+
+sourceSets {
+	main {
+		resources {
+			srcDirs "src/main/resources", "src/main/resources-env/${profile}"
+		}
+	}
+}
+
+bootRun {
+	String profile = System.properties['spring.profiles.active']
+	systemProperty("spring.profiles.active", profile)
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class' : 'com.plaidcamp.mealogram.MealogramApiServerApplication'
+	}
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
 test {
 	useJUnitPlatform()
 }

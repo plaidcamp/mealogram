@@ -1,4 +1,4 @@
-package com.plaidcamp.mealogram.auth.service;
+package com.plaidcamp.mealogram.user.service;
 
 import com.plaidcamp.mealogram.common.vo.ApiResult;
 import org.springframework.http.ResponseEntity;

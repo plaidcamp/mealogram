@@ -1,5 +1,6 @@
 package com.plaidcamp.mealogram.user.controller;
 
+import com.plaidcamp.mealogram.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,8 @@ public class UserController {
     private final JwtTokenProvider jwtTokenProvider;
     private final UserMasterRepository userRepository;
 
+    private UserService userService;
+
     // 회원가입
     @PostMapping("/register")
     public UUID join(@RequestBody Map<String, String> user) {
@@ -41,6 +44,6 @@ public class UserController {
         if (!passwordEncoder.matches(user.get("password"), member.getPassword())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
-        return jwtTokenProvider.createToken(member.getUsername(), member.getRoles());
+        return jwtTokenProvider.createAccessToken(member.getUsername(), member.getRoles());
     }
 }

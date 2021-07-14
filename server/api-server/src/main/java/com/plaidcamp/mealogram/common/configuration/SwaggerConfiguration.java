@@ -1,5 +1,6 @@
 package com.plaidcamp.mealogram.common.configuration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -20,8 +21,19 @@ import java.util.Set;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
+    @Value("${profile}")
+    private String profile;
+
+    public SwaggerConfiguration() {
+        System.out.println(profile);
+    }
+
     @Bean
     public Docket api() {
+
+        if("PROD".equals(profile))
+            return null;
+
         return new Docket(DocumentationType.SWAGGER_2)
                 .consumes(getConsumeContentTypes())
                 .produces(getProduceContentTypes())
