@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:gourmetlog/common/auth/AuthManager.dart';
+import 'package:gourmetlog/common/auth/TokenManager.dart';
 import 'package:gourmetlog/common/components/color.dart';
 import 'package:gourmetlog/data/request/signin/SignInRequest.dart';
 import 'package:gourmetlog/data/response/signin/SignInResponse.dart';
@@ -97,8 +97,9 @@ class SignInBody extends StatelessWidget {
                               if(snapshot.hasData) {
                                 SignInResponse response = snapshot.data;
                                 if(response.matchCode==0) {
-                                  final authManager = AuthManager();
-                                  authManager.saveToken("token", response.token);
+                                  final authManager = TokenManager();
+                                  authManager.saveToken("accessToken", response.accessToken);
+                                  authManager.saveToken("refreshToken", response.refreshToken);
                                   return MainScreen();
                                 }
                                 else {
