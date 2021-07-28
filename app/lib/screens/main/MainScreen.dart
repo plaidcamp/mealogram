@@ -12,7 +12,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<AuthManager>(
-      create: (_) => AuthManager(),
+      create : (_) => AuthManager(),
       child: Scaffold(),
     );
   }
