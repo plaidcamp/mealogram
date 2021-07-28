@@ -1,15 +1,17 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:gourmetlog/common/auth/AuthManager.dart';
+import 'package:gourmetlog/common/auth/TokenManager.dart';
+import 'package:gourmetlog/data/request/GlobalRequest.dart';
 import 'package:gourmetlog/data/response/post/PostResponse.dart';
 import 'package:http/http.dart';
 
-class PostRequest {
+class PostRequest extends GlobalRequest{
+
   Future<PostResponse> getPostInfo(int userId) async {
     final Uri postUrl = Uri.parse("https://localhost/post");
 
-    AuthManager.instance.readToken("token").then((token) async {
-      Response res = await post(postUrl, headers: {
+    TokenManager.instance.getAccessToken().then((token) async {
+      Response res = await client.post(postUrl, headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         HttpHeaders.authorizationHeader : token,
       },
@@ -22,6 +24,11 @@ class PostRequest {
         PostResponse result = PostResponse.fromJson(body);
         return result;
       }
+
+      else if (res.statusCode == 401) {
+
+      }
+
       else {
         throw Exception("Sign-In Request Error");
       }
