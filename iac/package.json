@@ -2,13 +2,20 @@
   "name": "iac",
   "version": "0.1.0",
   "bin": {
-    "iac": "src/bin/iac.js"
+    "iac": "src/bin/iac.ts"
   },
   "scripts": {
+    "clean": "rimraf dist",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "cdk:bootstrap": "cdk bootstrap --all",
+    "cdk:synth": "cdk synth --all",
+    "cdk:diff": "cdk diff --all",
+    "cdk:deploy": "cdk deploy --all --outputs-file cfn_outputs.json",
+    "cdk:destroy": "cdk destroy --all",
+    "build_all": "npm run clean && npm run build && cdk deploy --outputs-file cfn_outputs.json"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.109.0",
