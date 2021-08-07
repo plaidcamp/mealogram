@@ -1,4 +1,5 @@
 import * as cdk from "@aws-cdk/core";
+import { RdsStack } from "./rds-stack";
 import { ServerStack } from "./server-stack";
 
 export interface InfraProps extends cdk.StackProps {
@@ -24,8 +25,13 @@ export class InfraStack extends cdk.Stack {
     });
 
     /**
-     * 📝 Database Stack
+     * 📝 rds Stack
      * @description @aws-cdk/aws-rds를 사용하여 rdb를 생성한다.
      **/
+    const rdsStack = new RdsStack(this, `${prefix}-rdsStack`, {
+      stackName: `${prefix}-rdsStack`,
+      environment: this.environment,
+      prefix,
+    });
   }
 }
