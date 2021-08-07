@@ -15,7 +15,7 @@
     "cdk:diff": "cdk diff --all",
     "cdk:deploy": "cdk deploy --all --outputs-file cfn_outputs.json",
     "cdk:destroy": "cdk destroy --all",
-    "build_all": "npm run clean && npm run build && cdk deploy --outputs-file cfn_outputs.json"
+    "deploy_all": "npm run clean && npm run build && cdk deploy  --all --outputs-file cfn_outputs.json"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.109.0",
