@@ -4,6 +4,10 @@
   "bin": {
     "iac": "src/bin/iac.ts"
   },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=7"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc",
