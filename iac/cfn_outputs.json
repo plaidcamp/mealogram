@@ -1,1 +1,6 @@
-{}
+{
+  "dev-plaidcamp-mealogram-serverStack": {
+    "secretName": "devplaidcampmealograminfraS-9cHTCWQ8sUlh",
+    "dbEndpoint": "dev-plaidcamp-mealogram-db-instance.cp0aj5nv83si.ap-northeast-2.rds.amazonaws.com"
+  }
+}

@@ -2,8 +2,6 @@ import * as cdk from "@aws-cdk/core";
 import * as ec2 from "@aws-cdk/aws-ec2";
 import * as ecs from "@aws-cdk/aws-ecs";
 import * as rds from "@aws-cdk/aws-rds";
-import { ExecSyncOptions } from "child_process";
-
 export interface ServerStackProps extends cdk.StackProps {
   prefix: string;
   environment: string;
@@ -17,7 +15,12 @@ export class ServerStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: ServerStackProps) {
     super(scope, id, props);
 
-    const prefix = props.prefix;
+    const { prefix } = props;
+
+    const removePolicy =
+      props.environment === "prod"
+        ? cdk.RemovalPolicy.RETAIN
+        : cdk.RemovalPolicy.DESTROY;
 
     const vpc = new ec2.Vpc(this, `${prefix}-vpc`, {
       cidr: "10.0.0.0/16",
@@ -90,7 +93,7 @@ export class ServerStack extends cdk.Stack {
       allowMajorVersionUpgrade: false,
       autoMinorVersionUpgrade: true,
       deleteAutomatedBackups: true,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      removalPolicy: removePolicy,
       deletionProtection: false,
       databaseName: "mealogram",
       publiclyAccessible: false,
