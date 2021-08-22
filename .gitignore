@@ -140,10 +140,6 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-.env.test
-.env*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -215,7 +211,6 @@ temp/
 *.class
 
 # Generated files
-bin/
 gen/
 out/
 
