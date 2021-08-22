@@ -19,7 +19,7 @@ export class ServerStack extends cdk.Stack {
 
     const prefix = props.prefix;
 
-    const vpc = new ec2.Vpc(this, "my-cdk-vpc", {
+    const vpc = new ec2.Vpc(this, `${prefix}-vpc`, {
       cidr: "10.0.0.0/16",
       natGateways: 0,
       maxAzs: 3,
@@ -38,9 +38,13 @@ export class ServerStack extends cdk.Stack {
     });
 
     // 👇 create a security group for the EC2 instance
-    const ec2InstanceSG = new ec2.SecurityGroup(this, "ec2-instance-sg", {
-      vpc,
-    });
+    const ec2InstanceSG = new ec2.SecurityGroup(
+      this,
+      `${prefix}-ec2-instance-sg`,
+      {
+        vpc,
+      }
+    );
 
     ec2InstanceSG.addIngressRule(
       ec2.Peer.anyIpv4(),
@@ -49,7 +53,7 @@ export class ServerStack extends cdk.Stack {
     );
 
     // 👇 create the EC2 instance
-    const ec2Instance = new ec2.Instance(this, "ec2-instance", {
+    const ec2Instance = new ec2.Instance(this, `${prefix}-ec2-instance`, {
       vpc,
       vpcSubnets: {
         subnetType: ec2.SubnetType.PUBLIC,
@@ -66,8 +70,9 @@ export class ServerStack extends cdk.Stack {
     });
 
     // 👇 create RDS Instance
-    const dbInstance = new rds.DatabaseInstance(this, "db-instance", {
+    const dbInstance = new rds.DatabaseInstance(this, `${prefix}-db-instance`, {
       vpc,
+      instanceIdentifier: `${prefix}-db-instance`,
       vpcSubnets: {
         subnetType: ec2.SubnetType.ISOLATED,
       },
