@@ -1,49 +1,35 @@
 package com.plaidcamp.mealogram.user.controller;
 
+import com.plaidcamp.mealogram.common.error.exceptions.CustomException;
+import com.plaidcamp.mealogram.common.vo.ResponseVo;
+import com.plaidcamp.mealogram.user.dto.LoginDto;
+import com.plaidcamp.mealogram.user.dto.RegistrationDto;
 import com.plaidcamp.mealogram.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Collections;
-import java.util.Map;
-import java.util.UUID;
-
-import com.plaidcamp.mealogram.common.provider.JwtTokenProvider;
-import com.plaidcamp.mealogram.domain.user.UserMaster;
-import com.plaidcamp.mealogram.domain.user.UserMasterRepository;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
 
-    private final PasswordEncoder passwordEncoder;
-    private final JwtTokenProvider jwtTokenProvider;
-    private final UserMasterRepository userRepository;
 
     private UserService userService;
 
     // 회원가입
     @PostMapping("/register")
-    public UUID join(@RequestBody Map<String, String> user) {
-        return userRepository.save(
-                UserMaster.builder().email(user.get("email")).password(passwordEncoder.encode(user.get("password")))
-                        .roles(Collections.singletonList("ROLE_USER")).build())
-                .getId();
+    public ResponseEntity<ResponseVo> join(@RequestBody RegistrationDto user) throws CustomException {
+        System.out.println("param : " + user.toString());
+        return userService.registerService(user);
     }
 
-    // 로그인
+    // 로그인[
     @PostMapping("/login")
-    public String login(@RequestBody Map<String, String> user) {
-        UserMaster member = userRepository.findByEmail(user.get("email"))
-                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
-        if (!passwordEncoder.matches(user.get("password"), member.getPassword())) {
-            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
-        }
-        return jwtTokenProvider.createAccessToken(member.getUsername(), member.getRoles());
+    public ResponseEntity<ResponseVo> login(@RequestBody LoginDto user) throws CustomException {
+        return userService.loginService(user);
     }
 }

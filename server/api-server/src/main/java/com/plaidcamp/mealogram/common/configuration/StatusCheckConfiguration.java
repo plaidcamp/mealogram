@@ -17,7 +17,7 @@ public class StatusCheckConfiguration {
 
     @PostConstruct
     private void method() {
-        logger.info("------------PROFILE : " + profile + "-----------------");
+        logger.info("------------PROFILE : " + profile.toUpperCase() + "-----------------");
     }
 
 }
