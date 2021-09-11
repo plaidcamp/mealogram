@@ -14,9 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Getter
@@ -59,6 +57,9 @@ public class UserMaster extends BaseEntity implements UserDetails {
     private String userClass;
 
     @Column
+    private String birthday;
+
+    @Column
     private String facebookKey;
 
     @Column
@@ -85,7 +86,10 @@ public class UserMaster extends BaseEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        Set<GrantedAuthority> roles = new HashSet<>();
+        for(String role : administrate.split(","))
+            roles.add(new SimpleGrantedAuthority(role));
+        return roles;
     }
 
     @Override

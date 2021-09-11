@@ -1,5 +1,6 @@
 package com.plaidcamp.mealogram.user.service;
 
+import com.plaidcamp.mealogram.common.constants.AuthUtils;
 import com.plaidcamp.mealogram.common.error.exceptions.CustomException;
 import com.plaidcamp.mealogram.common.error.exceptions.InvalidDataException;
 import com.plaidcamp.mealogram.common.provider.JwtTokenProvider;
@@ -51,19 +52,32 @@ public class UserService {
         return sendReturn(token);
     }
 
+    /**
+     * 회원가입 Service
+     * @param user
+     * @return
+     * @throws CustomException
+     */
     public ResponseEntity<ResponseVo> registerService(RegistrationDto user) throws CustomException {
+        logger.info("param : " + user.toString());
         // 1. email 형식 확인
         if(!dataUtils.emailRegexCheck(user.getEmail())) {
-            throw new InvalidDataException();
+            logger.info("Email Regex 맞지 않음");
+            throw new InvalidDataException("Email Regex 맞지 않음");
         }
 
+        // 2. userMaster create
         UserMaster userMaster = UserMaster.builder()
                                           .email(user.getEmail())
                                           .phone(user.getPhone())
                                           .password(user.getPassword())
+                                          .administrate(AuthUtils.ROLE_USER)
                                           .build();
+        logger.info("UserMaster 생성");
 
-        return sendReturn(userRepository.save(userMaster).getId());
+        // 3. userMaster save & get userKey
+        String userKey = userRepository.save(userMaster).getId().toString();
+        return sendReturn(userKey);
     }
 
     private ResponseEntity<ResponseVo> sendReturn(Object result) {
