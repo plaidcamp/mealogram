@@ -6,37 +6,31 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.plaidcamp.mealogram.domain.BaseEntity;
 
 import com.sun.istack.NotNull;
+import lombok.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
+@Data
+@Builder
 public class UserMaster extends BaseEntity implements UserDetails {
 
     @Column(unique = true)
     @NotNull
     private String email;
 
-    @JsonIgnore
+    //@JsonIgnore
     @Column
     private String password;
 
@@ -45,7 +39,7 @@ public class UserMaster extends BaseEntity implements UserDetails {
 
     @Column
     @NotNull
-    private Integer administrate;
+    private String administrate;
 
     @Column
     private LocalDateTime lastLoginDate;
@@ -63,17 +57,20 @@ public class UserMaster extends BaseEntity implements UserDetails {
     private String userClass;
 
     @Column
+    private String birthday;
+
+    @Column
     private String facebookKey;
 
     @Column
     private String googleKey;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @Builder.Default
+    //@Builder.Default
     private List<String> roles = new ArrayList<>();
 
 //    @OneToMany(mappedBy = "user_account")
-//    private final Set<UserAccount> userAccounts = new HashSet<UserAccount>();
+//    private final Set<UserAccount> userAccounts = new HashSet<UserAccount>(); // account 개발 후 재활성화 예정
 
     @PrePersist
     void hashPassword() {
@@ -89,7 +86,10 @@ public class UserMaster extends BaseEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        Set<GrantedAuthority> roles = new HashSet<>();
+        for(String role : administrate.split(","))
+            roles.add(new SimpleGrantedAuthority(role));
+        return roles;
     }
 
     @Override
@@ -124,4 +124,21 @@ public class UserMaster extends BaseEntity implements UserDetails {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "UserMaster{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", cntAccount=" + cntAccount +
+                ", administrate=" + administrate +
+                ", lastLoginDate=" + lastLoginDate +
+                ", pwerrcnt=" + pwerrcnt +
+                ", pwinitcode='" + pwinitcode + '\'' +
+                ", phone='" + phone + '\'' +
+                ", userClass='" + userClass + '\'' +
+                ", facebookKey='" + facebookKey + '\'' +
+                ", googleKey='" + googleKey + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
 }
