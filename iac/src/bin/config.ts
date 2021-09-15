@@ -1,0 +1,1 @@
+export const STACK_NAME = 'plaidcamp-mealogram'

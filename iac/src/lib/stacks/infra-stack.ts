@@ -1,5 +1,5 @@
-import * as cdk from '@aws-cdk/core';
-import { ServerStack } from './server-stack';
+import * as cdk from "@aws-cdk/core";
+import { ServerStack } from "./server-stack";
 
 export interface InfraProps extends cdk.StackProps {
   prefix: string;
@@ -10,7 +10,7 @@ export class InfraStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: InfraProps) {
     super(scope, id, props);
 
-    const prefix = props?.prefix || '';
+    const prefix = props?.prefix || "";
 
     /**
      * 📝 Server Stack
@@ -18,13 +18,9 @@ export class InfraStack extends cdk.Stack {
      **/
 
     const serverStack = new ServerStack(this, `${prefix}-serverStack`, {
-      prefix
-    })
-
-    /**
-     * 📝 Database Stack
-     * @description @aws-cdk/aws-rds를 사용하여 rdb를 생성한다.
-     **/
-
+      stackName: `${prefix}-serverStack`,
+      environment: this.environment,
+      prefix,
+    });
   }
 }
