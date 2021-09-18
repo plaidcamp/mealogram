@@ -1,8 +1,8 @@
 package com.plaidcamp.mealogram.common.provider;
 
 import com.plaidcamp.mealogram.common.constants.AuthConstant;
-import com.plaidcamp.mealogram.common.constants.Token;
 import com.plaidcamp.mealogram.domain.user.UserMaster;
+import com.plaidcamp.mealogram.domain.user.UserMasterRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -16,13 +16,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Key;
 import java.util.*;
-
-import com.plaidcamp.mealogram.user.service.CustomUserDetailService;
 
 /**
  * Token
@@ -39,20 +39,28 @@ public class JwtTokenProvider {
 
     private String AccessKey = "webfirewood";
     private String RefreshKey = "WhoCanKnowMe";
+    private Key accessSecretKey;
+    private Key refreshSecretKey;
 
-    private final SignatureAlgorithm sa = SignatureAlgorithm.RS512;
-    private final CustomUserDetailService customUserDetailService;
+    private final SignatureAlgorithm sa = SignatureAlgorithm.HS512;
+    private final UserMasterRepository userRepository;
     private final FuncUtilProvider funcUtil;
 
     // 객체 초기화, secretKey를 Base64로 인코딩한다.
     @PostConstruct
-    protected void init() throws IOException {
+    public void init() throws IOException {
         // Create Token Private Key
         AccessKey = Base64.getEncoder().encodeToString(AccessKey.getBytes());
         RefreshKey = Base64.getEncoder().encodeToString(RefreshKey.getBytes());
         if(!"PROD".equals(profile)) {
-            System.out.println("Secret key" + AccessKey);
-            System.out.println("Secret key" + RefreshKey);
+            System.out.println("Secret key : " + AccessKey);
+            System.out.println("Secret key : " + RefreshKey);
+
+            byte[] accessSecret = DatatypeConverter.parseBase64Binary(AccessKey);
+            byte[] refreshSecret = DatatypeConverter.parseBase64Binary(RefreshKey);
+
+            this.accessSecretKey = new SecretKeySpec(accessSecret, sa.getJcaName());
+            this.refreshSecretKey = new SecretKeySpec(refreshSecret, sa.getJcaName());
         } else {
             Path p = Paths.get("src/main/resources/secret/tokenKey.pem");
             List<String> reads = Files.readAllLines(p);
@@ -62,15 +70,6 @@ public class JwtTokenProvider {
             }
         }
 
-    }
-
-    public String decodeToken(String token) {
-        Base64.Decoder decoder = Base64.getDecoder();
-        String[] chunks = token.split("\\.");
-        String header = new String(decoder.decode(chunks[0]));
-        String payload = new String(decoder.decode(chunks[1]));
-        SecretKeySpec sign = new SecretKeySpec();
-        return null;
     }
 
     public String createRefreshToken(UserMaster user) {
@@ -83,11 +82,13 @@ public class JwtTokenProvider {
 
     // JWT 토큰 생성
     private String createToken(UserMaster user, String token) {
+        System.out.println("user : " + user.toString());
         boolean t = AuthConstant.ACCESS_TOKEN.equals(token);
-        String key = (t)? this.AccessKey : this.RefreshKey;
-        Date expireDate = new Date();
-        if(t) { expireDate = funcUtil.AddHour(expireDate, AuthConstant.ACCESS_TOKEN_DURATION); }
-        else  { expireDate = funcUtil.AddDays(expireDate, AuthConstant.REFRESH_TOKEN_DURATION); }
+        Key key = (t)? this.accessSecretKey : this.refreshSecretKey;
+        Date nowDate = new Date();
+        Date expireDate;
+        if(t) { expireDate = funcUtil.AddHour(nowDate, AuthConstant.ACCESS_TOKEN_DURATION); }
+        else  { expireDate = funcUtil.AddDays(nowDate, AuthConstant.REFRESH_TOKEN_DURATION); }
 
         // jwt header setting
         Map<String, Object> header = new HashMap<String, Object>();
@@ -95,7 +96,7 @@ public class JwtTokenProvider {
         header.put("alg", sa.getValue());
 
         // claims 생성
-        Claims claims = Jwts.claims().setSubject(user.getId().toString()); // JWT payload Subject
+        Claims claims = Jwts.claims().setSubject(user.getEmail()); // JWT payload Subject
         // TODO : payload에 들어가야 할 데이터들 추가하면 됨
         claims.put("email", user.getEmail());
         claims.put("roles", user.getRoles()); // 정보는 key / value 쌍으로 저장된다.
@@ -104,7 +105,7 @@ public class JwtTokenProvider {
         return Jwts.builder()
                 .setHeader(header) // jwt header 넣어줌
                 .setClaims(claims) // 정보(payload) 저장
-                .setIssuedAt(new Date())  // 토큰 발행 시간 정보(iat)
+                .setIssuedAt(nowDate)  // 토큰 발행 시간 정보(iat)
                 .setExpiration(expireDate) // 토큰 만료시간 정보(exp)
                 .signWith(sa, key) // 사용할 암호화 알고리즘과 signature 에 들어갈 secret값 세팅
                 .compact();
@@ -132,21 +133,45 @@ public class JwtTokenProvider {
     }
 
     // 토큰의 유효성 + 만료일자 확인
-    public boolean validateToken(Token token, String jwtToken) {
+    public boolean validateToken(String proc, String jwtToken) {
         try {
             Jws<Claims> claims;
-            if(token == Token.ACCESS) {
-                claims = Jwts.parser().setSigningKey(AccessKey).parseClaimsJws(jwtToken);
+            if(AuthConstant.ACCESS_TOKEN.equals(proc)) {
+                claims = Jwts.parser().setSigningKey(accessSecretKey).parseClaimsJws(jwtToken);
             } else {
-                claims = Jwts.parser().setSigningKey(RefreshKey).parseClaimsJws(jwtToken);
+                claims = Jwts.parser().setSigningKey(refreshSecretKey).parseClaimsJws(jwtToken);
             }
+            System.out.println(claims.getBody());
 
-            return !claims.getBody().getExpiration().before(new Date());
+            if(checkExpireDate(claims) && checkUserData(claims))
+                return true;
+            else
+                return false;
 
         } catch (Exception e) {
             return false;
         }
     }
 
+    private boolean checkUserData(Jws<Claims> claims) {
+        if("".equals(profile))
+            return true;
 
+        boolean answer = true;
+
+        String email = claims.getBody().get("email").toString();
+        String claims_id = claims.getBody().get("id").toString();
+
+        Optional<UserMaster> user = userRepository.findByEmail(email);
+        if(user.isEmpty() || user.get().getId().toString().equals(claims_id)) {
+            answer = false;
+        }
+        System.out.println("jwt provider check User Data : " + user.get().toString());
+        return answer;
+    }
+
+    private boolean checkExpireDate(Jws<Claims> claims) {
+
+        return !claims.getBody().getExpiration().before(new Date());
+    }
 }

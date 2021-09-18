@@ -25,11 +25,14 @@ public class AuthCheckInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.info("Interceptor Entered");
 
+        // request header로부터 token 가져오기
         String[] token = jwtProvider.resolveToken(request);
-        if(StringUtils.hasText(token[0])) {
-            if(jwtProvider.)
-        } else {
-            throw new TokenException("AccessToken is null");
+        if(StringUtils.hasText(token[0])) { // access token이 존재한다면
+            if(jwtProvider.validateToken(AuthConstant.ACCESS_TOKEN, token[0])) {
+
+            }
+        } else { // access token이 없다면
+            throw new TokenException("AccessToken is null"); // 나는 exception 던져주고, 앞단에서 로그인으로 redirect
         }
 
         return false;
